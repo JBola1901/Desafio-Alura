@@ -1,29 +1,44 @@
 /* styles.css */
 
+/* Variables de colores */
+:root {
+    --primary-color: #3498db; /* Azul */
+    --primary-color-dark: #2980b9; /* Azul oscuro (para efecto hover) */
+    --secondary-color: #e74c3c; /* Rojo */
+    --secondary-color-dark: #c0392b; /* Rojo oscuro (para efecto hover) */
+    --accent-color: #f39c12; /* Naranja */
+    --accent-color-dark: #e67e22; /* Naranja oscuro (para efecto hover) */
+    --background-color: #000000; /* Gris claro */
+    --text-color: #2c3e50; /* Azul oscuro */
+}
+
 body {
+    background-image: url("img/code.png");
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #dbdada;
+    background-color: var(--background-color);
     margin: 0;
     padding: 0;
 }
 
 .wrapper {
+  
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 20px;
 }
 
-.container, #outputBox {
-    width: 300px;
-    background-color: #fff;
+.container {
+    width: 300px; /* Ancho fijo para container */
+    background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    border: 4px solid #92e6ffd2;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -37,14 +52,17 @@ textarea {
     margin-bottom: 10px;
     padding: 10px;
     border: 1px solid #ccc;
+    background-color: #ffffff;
     border-radius: 4px;
     resize: none;
+    transition: border-color 0.3s ease; /* Transición para el cambio de color del borde */
 }
 
 .buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%; /* Los botones ocupan el 100% del contenedor */
 }
 
 .buttons button {
@@ -53,40 +71,50 @@ textarea {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    width: 100%;
+    width: 100%; /* Los botones ocupan el 100% del contenedor */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.buttons button:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra al hacer hover */
 }
 
 button#encryptButton {
-    background-color: #4CAF50;
+    background-color: var(--primary-color);
     color: white;
+}
+
+button#encryptButton:hover {
+    background-color: var(--primary-color-dark);
 }
 
 button#decryptButton {
-    background-color: #f44336;
+    background-color: var(--secondary-color);
     color: white;
 }
 
-button#copyButton {
-    background-color: #2196F3;
-    color: white;
-    margin-top: 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    width: 100%;
+button#decryptButton:hover {
+    background-color: var(--secondary-color-dark);
 }
 
 #outputBox {
+    width: 400px; /* Ancho fijo para outputBox */
+    height: 500px; /* Altura fija para outputBox */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border: 4px solid #92e6ffd2;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    margin: 10px;
 }
 
 .output-text {
     width: 100%;
-    height: 400px;
+    flex: 1; /* El div output-text ocupa todo el espacio disponible */
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -95,7 +123,38 @@ button#copyButton {
     white-space: pre-wrap;
 }
 
-.logo {
-    width: 100px; /* Tamaño del logo */
-    height: 100px;
+button#copyButton {
+    background-color: var(--accent-color);
+    color: white;
+    margin-top: 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%; /* El botón de copiar ocupa el 100% del contenedor */
+}
+
+button#copyButton:hover {
+    background-color: var(--accent-color-dark);
+}
+
+.logo{
+    margin-bottom: 35%;
+    margin-right: 25%;
+    width: 200px;
+}
+h1 {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 150%;
+}
+
+h2,
+p,
+button {
+    font-family: 'Inter', sans-serif;
+}
+
+h2 {
+    font-size: 150%;
+    font-weight: 400;
 }
